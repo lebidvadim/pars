@@ -12,6 +12,7 @@
 Запуск через Docker
 
 - Запускаем файл docker-compose.yml
+- sail composer install
 - sail artisan migrate
 - sail artisan app:pars-courses (рапсим файл bm_rates.dat и записываем выгодный курс для каждой пары валют)
 
