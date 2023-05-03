@@ -14,11 +14,11 @@
 - Запускаем файл docker-compose.yml
 - sail composer install
 - sail artisan migrate
-- sail artisan app:pars-courses (парсим файл bm_rates.dat и записываем выгодный курс для каждой пары валют)
+- sail artisan app:parser-courses (парсим файл bm_rates.dat и записываем выгодные курс для каждой пары валют)
 
 ## REST API
 
 API_TOKEN = dqwd454d5qwd45qwd4qwd5
 
-- http://localhost/api/courses (получаем все выгодный курс для каждой пары валют), также можем передать GET параметры (send_currency либо receive_currency)
-- http://localhost/api/course/19/10 (получаем курс по выбраной паре)
+- http://localhost/api/courses (получаем все выгодные курсы для каждой пары валют), также можем передать GET параметры (send_currency либо receive_currency)
+- http://localhost/api/course/19/10 (получаем курс по выбранной паре)

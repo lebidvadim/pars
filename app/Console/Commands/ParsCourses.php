@@ -9,7 +9,7 @@ use ZipArchive;
 
 class ParsCourses extends Command
 {
-    protected $signature = 'app:pars-courses';
+    protected $signature = 'app:parser-courses';
 
     protected $description = 'Парс выгодных курсов с BestChange';
 
@@ -43,7 +43,7 @@ class ParsCourses extends Command
     {
         $content = file($this->bmRatesFilePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         $data = [];
-        // формируем масив
+        // формируем массив
         foreach ($content as $line) {
             $values = explode(';', $line);
             $data[] = [
@@ -54,7 +54,7 @@ class ParsCourses extends Command
             ];
         }
         $pairs = [];
-        // групируем по парам
+        // группируем по парам
         foreach ($data as $item) {
             $pair = "{$item['send_currency']}_{$item['receive_currency']}";
             $pairs[$pair][] = $item;
@@ -77,7 +77,7 @@ class ParsCourses extends Command
         foreach ($chunks as $chunk) {
             Course::insert($chunk);
         }
-        // удаляем архив и файл что парсились
+        // удаляем архив и файл что парсили
         $this->clearFile();
 
         $this->info('Данные обновлены. '.date('H:i:s',time()));
