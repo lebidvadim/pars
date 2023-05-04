@@ -62,11 +62,9 @@ class ParsCourses extends Command
         $pairsNew = [];
         // поиск максимального выгодного курса для пары
         foreach ($pairs as $k => $item) {
-            $receive_rates = array_column($item, 'receive_rate');
             $send_rates = array_column($item, 'send_rate');
-            $max_receive_rate = max($receive_rates);
-            $max_send_rate = max($send_rates);
-            $max_key = $max_receive_rate > $max_send_rate ? array_search($max_receive_rate, $receive_rates) : array_search($max_send_rate, $send_rates);
+            $receive_rates = array_column($item, 'receive_rate');
+            $max_key = max($send_rates) == 1 ? array_search(min($receive_rates),$receive_rates) : array_search(max($send_rates),$send_rates);
             $pairsNew[$k] = $item[$max_key];
         }
         return $pairsNew;
