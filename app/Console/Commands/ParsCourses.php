@@ -64,7 +64,7 @@ class ParsCourses extends Command
         foreach ($pairs as $k => $item) {
             $send_rates = array_column($item, 'send_rate');
             $receive_rates = array_column($item, 'receive_rate');
-            array_multisort($send_rates, SORT_DESC, $receive_rates, SORT_ASC, $item);
+            array_multisort($send_rates, SORT_ASC, $receive_rates, SORT_DESC, $item);
             $pairsNew[$k] = $item[0];
         }
         return $pairsNew;
